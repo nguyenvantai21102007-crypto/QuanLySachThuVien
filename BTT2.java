@@ -8,7 +8,7 @@ public class BTT2 {
         String hoTen = sc.nextLine();
 
         System.out.println("Ho va ten cua toi la: " + hoTen);
-
+        System.out.println("Bai tap BTT2 - Lan cap nhat thu hai");
         sc.close();
     }
 }
