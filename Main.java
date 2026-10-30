@@ -27,13 +27,13 @@ public class Main {
         System.out.print("Nhap so luong: ");
         soLuong = sc.nextInt();
 
-        // Bai 2: Tinh thanh tien
+        // Bai2:Tinh thanh tien
         thanhTien = donGia * soLuong;
 
-        // Bai 3: Tinh phi van chuyen
+        // Bai3:Tinh phi van chuyen
         phiVanChuyen = thanhTien * 5 / 100;
 
-        // Bai 4: Tinh tong tien nhap
+        // Bai4:Tinh tong tien nhap
         tongTien = thanhTien + phiVanChuyen;
 
         // Hien thi thong tin
