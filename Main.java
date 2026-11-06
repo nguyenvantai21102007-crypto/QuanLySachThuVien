@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 public class Main {
-cd C:\nvt\THHDTcd C:\nvt\THHDT    public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         String maSach[] = new String[100];
