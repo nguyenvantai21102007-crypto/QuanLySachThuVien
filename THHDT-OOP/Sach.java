@@ -1,5 +1,8 @@
+
+import java.time.LocalDate;
+
 public class Sach {
-    // Yêu cầu 1: Các thuộc tính của cuốn sách
+    // Yêu cầu 1: Tất cả thuộc tính khai báo private
     private String maSach;
     private String tieuDe;
     private String tacGia;
@@ -10,16 +13,16 @@ public class Sach {
     public Sach() {
     }
 
-    // Constructor đầy đủ tham số
+    // Yêu cầu 4: Constructor có tham số đầy đủ (gọi setter để áp dụng ràng buộc kiểm tra dữ liệu)
     public Sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong) {
         this.maSach = maSach;
         this.tieuDe = tieuDe;
         this.tacGia = tacGia;
-        this.namXuatBan = namXuatBan;
-        this.soLuong = soLuong;
+        setNamXuatBan(namXuatBan);
+        setSoLuong(soLuong);
     }
 
-    // Getter & Setter
+    // Yêu cầu 2: Các phương thức public getter và setter
     public String getMaSach() {
         return maSach;
     }
@@ -48,21 +51,31 @@ public class Sach {
         return namXuatBan;
     }
 
+    // Yêu cầu 3: Kiểm tra năm xuất bản hợp lệ (> 0 và <= năm hiện tại)
     public void setNamXuatBan(int namXuatBan) {
-        this.namXuatBan = namXuatBan;
+        int currentYear = LocalDate.now().getYear();
+        if (namXuatBan > 0 && namXuatBan <= currentYear) {
+            this.namXuatBan = namXuatBan;
+        } else {
+            System.out.println("Năm xuất bản không hợp lệ (" + namXuatBan + "). Phải nằm trong khoảng 1.." + currentYear + ". Giữ nguyên giá trị hiện tại: " + this.namXuatBan);
+        }
     }
 
     public int getSoLuong() {
         return soLuong;
     }
 
+    // Yêu cầu 3: Kiểm tra số lượng không âm (>= 0)
     public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+        if (soLuong >= 0) {
+            this.soLuong = soLuong;
+        } else {
+            System.out.println("Số lượng không hợp lệ (" + soLuong + "). Số lượng phải >= 0. Giữ nguyên giá trị hiện tại: " + this.soLuong);
+        }
     }
 
-    // Yêu cầu 2: Hiển thị thông tin chi tiết của cuốn sách
     public void hienThiThongTin() {
         System.out.printf("Mã sách: %-8s | Tiêu đề: %-26s | Tác giả: %-18s | Năm XB: %-5d | Số lượng: %d%n",
                 maSach, tieuDe, tacGia, namXuatBan, soLuong);
     }
-}
+} 
